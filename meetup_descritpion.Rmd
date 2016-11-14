@@ -1,9 +1,16 @@
 ---
-title: "MEETUP R SHINY Aline DESCHAMPS - 14/11/16"
+title: "MEETUP R Aline DESCHAMPS - 14/11/16"
 author: "LATIF Mehdi"
 date: "14/11/2016"
 output: html_document
 ---
+# CODELAB R SHINY
+## Librairies : 
+```{r}
+library(shiny)
+library(twitteR)
+```
+
 # Titre 1
 ## Titre 2
 **Gras**
