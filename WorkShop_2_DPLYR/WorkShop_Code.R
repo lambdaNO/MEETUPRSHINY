@@ -103,5 +103,6 @@ voyages %>%
 
 voyages %>%
   filter(ptdepimp == "Nantes") %>%
-  mutate(duree = datebuy - datedep)
+  drop_na(datedep) %>%
+  drop_na(datebuy) %>%
 
