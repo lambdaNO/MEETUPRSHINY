@@ -1,5 +1,5 @@
 # MEETUP - WORKSHOP 2 : DPLYR & TIDYR
-# SERIE EXO 2 
+# SERIE EXO 4 
 setwd("~/Desktop/DIVERS_TEMPLATES/MEETUP/R/R_Workshop/WorkShop_2_DPLYR/CODE")
 library(dplyr)
 library(tidyr)
@@ -77,12 +77,19 @@ flags_years
 
 
 perio <- voyages %>%
+  ### cut divides the range of x into intervals and codes the values in x according to which interval they fall.
   group_by(intervalles_chrono = cut(yearam, breaks= seq(1500, 1875, by = 25),
+  ### x = yearam : a numeric vector which is to be converted to a factor by cutting.
+  ### breaks	: either a numeric vector of two or more unique cut points or a single number (greater than or equal to 2) giving the number of intervals into which x is to be cut
                                     include.lowest = TRUE,
+  ### include.lowest	: logical, indicating if an ‘x[i]’ equal to the lowest (or highest, for right = FALSE) ‘breaks’ value should be included.
                                     right = FALSE,  
-                                    dig.lab = 4)) %>% 
+  ### right	: logical, indicating if the intervals should be closed on the right (and open on the left) or vice versa.
+                                    dig.lab = 4)) %>%
+  ### dig.lab	: integer which is used when labels are not given. It determines the number of digits used in formatting the break numbers.
   summarise(n_expeditions= n()) 
 
 perio
 plot(perio)
 
+remove(cpt_lvp,flags_years,perio,voyages,X,Y)
