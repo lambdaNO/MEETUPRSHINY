@@ -94,7 +94,6 @@ paste(chrono_voyages$voyageid,"-",chrono_voyages$shipname,"-",chrono_voyages$yea
 voyages %>% 
   drop_na(slaximp) %>%
   filter(ptdepimp == "Liverpool") %>%
-  
   summarise(total_escl <- sum(slaximp))
 
 voyages %>%

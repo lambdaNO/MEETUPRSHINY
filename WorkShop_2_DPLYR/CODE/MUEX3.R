@@ -47,3 +47,5 @@ pie3D(table(chrono_voyages$natinimp),explode=0.1)
 fr_natio_voyages <- natio_voyages %>%
   filter(natinimp =="France")
 paste(fr_natio_voyages$voyageid,"-",fr_natio_voyages$yearam, "-",fr_natio_voyages$shipname,"-", fr_natio_voyages$natinimp,"-",fr_natio_voyages$ptdepimp)
+
+remove(chrono_voyages,fr_natio_voyages,natio_voyages,voyages)
