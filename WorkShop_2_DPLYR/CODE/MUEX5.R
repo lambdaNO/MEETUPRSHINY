@@ -46,4 +46,10 @@ voyages %>%
 ### Calculez la durée moyenne de navigation des navires nantais jusqu’aux principaux lieux d’achat d’esclaves.
 ### Complétez votre tableau par des colonnes, indiquant pour chaque principal lieu d’achat, les durée min et max de navigation depuis Nantes.
 
-
+voyages %>%
+  filter(ptdepimp=="Nantes") %>%
+  drop_na(datedep, datebuy) %>%
+  select(1, shipname, mjbyptimp, datedep, datebuy) %>%
+  mutate(duree_navigation = datebuy - datedep) %>%
+  group_by(mjbyptimp) %>%
+  summarise(mean(round(duree_navigation), 1), min_nav = min(duree_navigation), max_nav = max(duree_navigation)) 
